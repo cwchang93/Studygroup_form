@@ -1,0 +1,50 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<!-- 加入book validate的版本 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jinwei's StudyGroup Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="studygroup.js"></script>
+    <!-- Vue JS -->
+
+    <link href="studygroup.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+<body>
+
+    <h2>Jinwei's StudyGroup Form</h2>
+    <div id="app">
+        <h5>Format: LevelStartchapter*ReviewTimes</h5>
+        <p>Level:A-Q(2A-7A) Chapter:1,11,21,...191 ReviewTimes: 1-99 </p>
+        <p>必須輸入符合上述規定的格式才有辦法輸入到下面表單中(點Enter輸入)</p>
+        <input v-model="mytodo" @keydown.enter='check()' placeholder='E.g: 3A1*5 or Q101*3'>
+        <div class="row" v-for="(notation, index) in fullnotation">
+            <div class="column1">
+                {{ index+1 }} {{ notation }}
+
+            </div>
+            <div class="column2">
+                <button @click="deleteRow(index)">x</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
